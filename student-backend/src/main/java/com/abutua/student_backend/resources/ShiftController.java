@@ -3,11 +3,13 @@ package com.abutua.student_backend.resources;
 import java.util.Arrays;
 import java.util.List;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.abutua.student_backend.models.Shift;
 @RestController
+@CrossOrigin
 public class ShiftController {
 
     private List<Shift> shifts = Arrays.asList(
