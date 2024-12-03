@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 import org.springframework.web.bind.annotation.PathVariable;
+
+import com.abutua.student_backend.models.Shift;
 import com.abutua.student_backend.models.Student;
 
 import org.springframework.http.HttpStatus;
@@ -19,7 +21,16 @@ public class StudentController {
         new Student(2,"Maria Santos", "maria@email.com","(11)99999-2222", 1, 1)
     );
     //private List<Student> students = new ArrayList<>();
-    
+        private List<Shift> shifts = Arrays.asList(
+        new Shift(1, "Manhã"),
+        new Shift(2, "Tarde"),
+        new Shift(3,"Noite")
+    );
+
+
+
+
+
     @GetMapping("students/{id}")
     public ResponseEntity <Student> getStudent(@PathVariable int id){
        

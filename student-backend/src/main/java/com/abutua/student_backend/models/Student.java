@@ -6,15 +6,15 @@ public class Student {
     private String email;
     private String phone;
     private int idCourse;
-    private int idClassTime;
+    private int idShift;
 
-    public Student(int id, String name, String email, String phone, int idCourse, int idClassTime){
+    public Student(int id, String name, String email, String phone, int idCourse, int idShift){
         this.id = id;
         this.name = name;
         this.email = email;
         this.phone = phone;
         this.idCourse = idCourse;
-        this.idClassTime =idClassTime;
+        this.idShift =idShift;
     }
 
 
@@ -51,16 +51,10 @@ public class Student {
     public void setIdCourse(int idCourse) {
         this.idCourse = idCourse;
     }
-    public int getIdClassTime() {
-        return idClassTime;
+    public int getIdShift() {
+        return idShift;
     }
-    public void setIdClassTime(int idClassTime) {
-        this.idClassTime = idClassTime;
+    public void setIdShift(int idShift) {
+        this.idShift = idShift;
     }
-
-
-
-
-
-    
 }
