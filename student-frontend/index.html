@@ -60,11 +60,9 @@
                                     Cursos:
                                 </div>
                                 <div class="col-10 col-sm-4">
-                                    <select class="form-select" id="categorySelection">
-                                        <option selected>Java</option>
-                                        <option value="Angular">Angular</option>
-                                        <option value="Html">Html</option>
-                                        <option value="Bootstrap">Bootstrap</option>
+                                    <select class="form-select" id="courseSelection">
+                                        <option selected>...</option>
+                                        
                                       </select>
                                 </div>
                                 <div class="col-6"></div>
@@ -99,7 +97,7 @@
     
                             <div class="row justify-content-left">
                                 <div class="col1">
-                                    <button onclick="AddForm()" type="button" class="btn btn-primary">Cadastrar</button>
+                                    <button onclick="save()" type="button" class="btn btn-primary">Cadastrar</button>
         
                                 </div>
                             </div>
@@ -127,24 +125,27 @@
                     <div class="row"><h2>Anulos Cadastrados</h2></div>
                     <div class="row justify-content-center pt-2">
                         <div class="col-10">
-                            <div class="row">
-                                <div class="col-1 fw-bold">#</div>
-                                <div class="col-3 fw-bold">Nome</div>
-                                <div class="col-3 d-none d-sm-block fw-bold">Email</div>
-                                <div class="col-3 d-none d-sm-block fw-bold">Telefone</div>
-                                <div class="col-1 d-none d-sm-block fw-bold">Curso</div>
-                                <div class="col-1 d-none d-sm-block fw-bold">Turno</div>
-                            </div>
-                            <hr>
-                            <div class="row">
-                                <div class="col-1">1</div>
-                                <div class="col-3">Predo Antonio</div>
-                                <div class="col-3 d-none d-sm-block">pedro@abutua.com</div>
-                                <div class="col-3 d-none d-sm-block">(15) 99999-9999</div>
-                                <div class="col-1 d-none d-sm-block">Angular</div>
-                                <div class="col-1 d-none d-sm-block">Tarde</div>
-                            </div>
-                            <hr>
+           
+                            <table class="table" id="studentsTable">
+                                <thread>
+                                    <tr>
+                                        <th scope = "col">#</th>
+                                        <th scope = "col">Nome</th>
+                                        <th scope = "col">Email</th>
+                                        <th scope = "col">Telefone</th>
+                                        <th scope = "col">Curso</th>
+                                        <th scope = "col">Turno</th>
+                                        
+                                    </tr>
+                                </thread>
+                                <tbody>
+                                    
+                                </tbody>
+            
+                            </table>
+
+
+
                             <div id="dataInsertion">
     
     

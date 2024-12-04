@@ -1,3 +1,5 @@
+LoadCourses();
+
 indexIncrement = 1;
 document.getElementById("alert").hide();
 function AddForm(){
@@ -40,4 +42,36 @@ function SelectedRadioButton(radioButton){
 
     }
 };
+
+//
+
+var students=[];
+var courses= [];
+
+
+function save (){
+
+
+
+}
+function LoadCourses(){
+    $.ajax({
+            url: "http://localhost:8080/courses",
+            type: "GET",
+            async: false,
+            success: (response) =>{
+            courses = response;
+            for (var c of courses){
+                document.getElementById("courseSelection").innerHTML+= '<option value='+c.id+'>'+c.name+'</option>';
+            }
+            
+
+            }
+
+    });
+}
+
+
+
+
 
