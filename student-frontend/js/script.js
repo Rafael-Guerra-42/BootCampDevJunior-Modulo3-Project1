@@ -1,5 +1,6 @@
 LoadCourses();
-
+LoadShifts();
+LoadStudents();
 indexIncrement = 1;
 document.getElementById("alert").hide();
 function AddForm(){
@@ -47,7 +48,7 @@ function SelectedRadioButton(radioButton){
 
 var students=[];
 var courses= [];
-
+var shifts = []
 
 function save (){
 
@@ -72,6 +73,64 @@ function LoadCourses(){
 }
 
 
+function LoadShifts(){
+    $.ajax({
+            url: "http://localhost:8080/shifts",
+            type: "GET",
+            async: false,
+            success: (response) =>{
+            shifts = response;
+            for (var s of shifts){
+                shifts.push(s);
+            }
+            
+
+            }
+
+    });
+}
+
+
+function LoadStudents(){
+    $.getJSON("http://localhost:8080/students", (response) =>{
+        students = response;
+            for(let stud of students){
+                AddNewRow(stud);
+            }
 
 
 
+    });
+
+
+
+
+}
+
+
+
+function AddNewRow(stud){
+    var table = document.getElementById("studentsTable");
+    
+    var newRow = table.insertRow();
+
+    var idNode = document.createTextNode(stud.id);
+    newRow.insertCell().appendChild(idNode);
+
+    var nameNode = document.createTextNode(stud.name);
+    newRow.insertCell().appendChild(nameNode);
+
+    var emailNode = document.createTextNode(stud.email);
+    newRow.insertCell().appendChild(emailNode);
+
+    var phoneNode = document.createTextNode(stud.phone);
+    newRow.insertCell().appendChild(phoneNode);
+
+    var courseNode = document.createTextNode(courses[stud.idCourse-1].name);
+    newRow.insertCell().appendChild(courseNode);
+
+    var shiftNode = document.createTextNode(shifts[stud.idShift-1].name);
+    newRow.insertCell().appendChild(shiftNode);
+
+
+}
