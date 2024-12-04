@@ -17,7 +17,7 @@ public class CourseController {
     
     private List<Course> courses = Arrays.asList (
         new Course(1,"Java"),
-        new Course(2, "Amgular"),
+        new Course(2, "Angular"),
         new Course(3, "Html"),
         new Course(4, "Bootstrap")
     );

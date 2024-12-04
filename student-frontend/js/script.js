@@ -3,6 +3,7 @@ LoadShifts();
 LoadStudents();
 indexIncrement = 1;
 document.getElementById("alert").hide();
+/*
 function AddForm(){
     document.getElementById("alertPlace").innerHTML=""
     if(document.getElementById("name").value=="" || document.getElementById("email").value=="" || document.getElementById("phone").value==""){
@@ -34,6 +35,7 @@ function AddForm(){
     
     }
 };
+*/
 function SelectedRadioButton(radioButton){
     for (let i =0; i<radioButton.length; i++){
 
@@ -50,7 +52,39 @@ var students=[];
 var courses= [];
 var shifts = []
 
-function save (){
+function save(){
+    var temp;
+    if(document.getElementById("morning").checked)
+        temp = 1;
+    if(document.getElementById("evening").checked)
+        temp = 2;
+    if(document.getElementById("night").checked)
+        temp = 3;
+    var stud = {
+        id: students.lenght+1,
+        name: document.getElementById("name").value,
+        email:  document.getElementById("email").value,
+        phone:  document.getElementById("phone").value,
+        idCourse: document.getElementById("courseSelection").value,
+        idShift: temp
+    }
+    $.ajax({
+        url:"http://localhost:8080/students",
+        contentType: "application/json",
+        type:"POST",
+        async: true,
+        data: JSON.stringify(stud),
+        success:(student) =>{
+            AddNewRow(student);
+            products.push(student);
+
+
+        }
+    });
+    document.getElementById("name").value='';
+    document.getElementById("email").value='';
+    document.getElementById("phone").value='';
+    document.getElementById("categorySelection").value='';
 
 
 
